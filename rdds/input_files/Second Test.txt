@@ -1,0 +1,6 @@
+The quick brown fox jumps over the lazy dog.
+A quick brown dog jumps over the lazy cat.
+The lazy cat jumps over the sleeping mouse.
+A brown mouse sneaks past the lazy dog.
+The lazy dog sleeps all day.
+The brown fox and the brown dog are friends.
