@@ -8,3 +8,7 @@ rdd = sc.textFile(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\input_
 # Task 1: Count the number of words in the file.
 rdd2 = rdd.flatMap(lambda x: x.split());
 print(rdd2.count())
+
+# Task 2: Find distinct words in the file.
+rdd3 = rdd.flatMap(lambda x: x.split()).distinct()
+rdd3.collect()
