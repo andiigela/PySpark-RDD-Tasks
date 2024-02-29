@@ -11,4 +11,10 @@ print(rdd2.count())
 
 # Task 2: Find distinct words in the file.
 rdd3 = rdd.flatMap(lambda x: x.split()).distinct()
-rdd3.collect()
+print(rdd3.collect())
+
+# Task 3: Find the longest word in the file
+rdd3 = rdd.flatMap(lambda x: x.split()).map(lambda x: [x,len(x)])
+rdd4 = rdd3.map(lambda x: x[1]).max()
+rdd5 = rdd3.filter(lambda x: x[1] == rdd4).map(lambda x: [x[0]]).flatMap(lambda x: x)
+print(rdd5.collect())
