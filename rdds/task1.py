@@ -20,5 +20,6 @@ rdd5 = rdd3.filter(lambda x: x[1] == rdd4).map(lambda x: [x[0]]).flatMap(lambda 
 print(rdd5.collect())
 
 # Task 4: Group players by country
-rdd6.map(lambda x: (x.split(',')[2], x.split(',')[0])).groupByKey().mapValues(list).collect()
-
+rdd6 = sc.textFile(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\input_files\Second Test 2.txt")
+rdd7 = rdd6.map(lambda x: (x.split(',')[2], x.split(',')[0])).groupByKey().mapValues(list)
+print(rdd7.collect())
