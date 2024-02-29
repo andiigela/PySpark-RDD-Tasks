@@ -23,3 +23,7 @@ print(rdd5.collect())
 rdd6 = sc.textFile(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\input_files\Second Test 2.txt")
 rdd7 = rdd6.map(lambda x: (x.split(',')[2], x.split(',')[0])).groupByKey().mapValues(list)
 print(rdd7.collect())
+
+# Task 5: Count the number of players in each country
+rdd8 = rdd6.map(lambda x: (x.split(',')[2], 1)).reduceByKey(lambda x,y: x+y)
+rdd8.collect()
