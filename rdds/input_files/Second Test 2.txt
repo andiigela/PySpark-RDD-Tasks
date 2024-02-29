@@ -1,0 +1,6 @@
+Alice,25,USA,Basketball
+Bob,30,UK,Football
+Charlie,28,Canada,Soccer
+David,32,USA,Soccer
+Emma,27,Australia,Tennis
+Fiona,29,USA,Swimming

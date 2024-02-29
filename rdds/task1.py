@@ -18,3 +18,7 @@ rdd3 = rdd.flatMap(lambda x: x.split()).map(lambda x: [x,len(x)])
 rdd4 = rdd3.map(lambda x: x[1]).max()
 rdd5 = rdd3.filter(lambda x: x[1] == rdd4).map(lambda x: [x[0]]).flatMap(lambda x: x)
 print(rdd5.collect())
+
+# Task 4: Group players by country
+rdd6.map(lambda x: (x.split(',')[2], x.split(',')[0])).groupByKey().mapValues(list).collect()
+
