@@ -27,3 +27,21 @@ print(rdd7.collect())
 # Task 5: Count the number of players in each country
 rdd8 = rdd6.map(lambda x: (x.split(',')[2], 1)).reduceByKey(lambda x,y: x+y)
 rdd8.collect()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
