@@ -40,3 +40,7 @@ maximum_mark = rdd8.reduceByKey(lambda x,y: x if x > y else y)
 print(minimum_mark.collect())
 print("---")
 print(maximum_mark.collect())
+
+# Task 13: Show the average age of male and female students
+rdd9 = rdd.filter(lambda x: x != headers).map(lambda x: (x.split(",")[1], (int(x.split(",")[0]),1))).reduceByKey(lambda x,y: (x[0]+y[0],x[1]+y[1])).map(lambda x: (x[0],(x[1][0]/x[1][1]))).flatMap(lambda x: x)
+print(rdd9.collect())
