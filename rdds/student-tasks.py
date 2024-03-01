@@ -28,3 +28,7 @@ print(rdd5.collect())
 # Task 10: Show the total marks that students have achieved per course
 rdd6 = rdd.filter(lambda x: x != headers).map(lambda x: (x.split(",")[3], int(x.split(",")[5]))).reduceByKey(lambda x,y: x+y)
 print(rdd6.collect())
+
+# Task 11: Show the average marks that students have achieved per course
+rdd7 = rdd.filter(lambda x: x != headers).map(lambda x: (x.split(",")[3],(int(x.split(",")[5]),1))).reduceByKey(lambda x,y: (x[0]+y[0],x[1]+y[1])).map(lambda x: (x[0],(x[1][0]/x[1][1])))
+print(rdd7.collect())
