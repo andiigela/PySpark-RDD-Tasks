@@ -24,3 +24,7 @@ print(f"Failed {failed}")
 # Task 9: Show the total number of students enrolled per course
 rdd5 = rdd.filter(lambda x: x != headers).map(lambda x: (x.split(",")[3],1)).reduceByKey(lambda x,y: x+y)
 print(rdd5.collect())
+
+# Task 10: Show the total marks that students have achieved per course
+rdd6 = rdd.filter(lambda x: x != headers).map(lambda x: (x.split(",")[3], int(x.split(",")[5]))).reduceByKey(lambda x,y: x+y)
+print(rdd6.collect())
