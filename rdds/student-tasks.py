@@ -20,3 +20,7 @@ passed = rdd4.filter(lambda x: int(x.split(",")[5]) > 50).count();
 failed = rdd4.filter(lambda x: int(x.split(",")[5]) <= 50).count();
 print(f"Passed {passed}")
 print(f"Failed {failed}")
+
+# Task 9: Show the total number of students enrolled per course
+rdd5 = rdd.filter(lambda x: x != headers).map(lambda x: (x.split(",")[3],1)).reduceByKey(lambda x,y: x+y)
+print(rdd5.collect())
