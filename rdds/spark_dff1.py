@@ -18,3 +18,6 @@ print(df2.show())
 # Task 17: Filter out all students who have achieved more than 60% marks in Cloud course and save it in new DF.
 df3 = df.filter((df.average > 60.0) & (df.course == "Cloud"))
 print(df3.show())
+
+# Task 18: Print the names and marks of all students from the above DFs
+print(df.select(df.name,df.marks).show())
