@@ -14,3 +14,7 @@ print(df.show())
 # Task 16: Filter out all students who have achieved more than 80% marks in OOP course and save it in new DF.
 df2 = df.filter((df.average > 80.0) & (df.course == "OOP") )
 print(df2.show())
+
+# Task 17: Filter out all students who have achieved more than 60% marks in Cloud course and save it in new DF.
+df3 = df.filter((df.average > 60.0) & (df.course == "Cloud"))
+print(df3.show())
