@@ -11,3 +11,6 @@ print(df.groupBy(df.course,df.gender).agg(count("*")).show());
 
 # Task 25: Display the total marks achieved by each gender in each course
 print(df.groupBy(df.gender,df.course).sum("marks").show());
+
+# Task 26: Display the minimum, maximum and average marks achieved in each course by each age group
+print(df.groupBy(df.course,df.age).agg(min("marks").alias("min_marks"),max("marks").alias("max_marks"),avg("marks").alias("avg_marks")).show())
