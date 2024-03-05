@@ -21,3 +21,7 @@ print(df3.show())
 
 # Task 18: Print the names and marks of all students from the above DFs
 print(df.select(df.name,df.marks).show())
+
+# Task 19: Write a code to display all the unique rows for age, number and course column
+print(df.dropDuplicates(["age","gender","course"]).count()) # First Solution
+print(df.select("name","gender","course").distinct().count()) # Second Solution
