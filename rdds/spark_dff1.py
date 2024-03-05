@@ -36,3 +36,7 @@ print(f_df.show())
 # Task 21: Create a DF sorted on age and salary in descending and ascending order respectively and show it.
 f_df2 = anotherdf.sort(anotherdf.age.desc(), anotherdf.salary.asc());
 print(f_df2.show());
+
+# Task 22: Create a DF sorted on age, bonus and salary in descending, descending and ascending order respectively and show it.
+f_df3 = anotherdf.sort(anotherdf.age.desc(),anotherdf.bonus.desc(),anotherdf.salary.asc());
+print(f_df3.show())
