@@ -30,5 +30,9 @@ print(df.select("name","gender","course").distinct().count()) # Second Solution
 anotherdf = spark.read.csv(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\input_files\OfficeData.csv",header=True,inferSchema=True);
 # Task 20: Create a DF sorted on bonus in ascending order and show it
 f_df = anotherdf.orderBy(anotherdf.bonus.asc()) # First Solution
-# f_df = df.sort(df.bonus.asc()) # Second Solution
+# f_df = anotherdf.sort(anotherdf.bonus.asc()) # Second Solution
 print(f_df.show())
+
+# Task 21: Create a DF sorted on age and salary in descending and ascending order respectively and show it.
+f_df2 = anotherdf.sort(anotherdf.age.desc(), anotherdf.salary.asc());
+print(f_df2.show());
