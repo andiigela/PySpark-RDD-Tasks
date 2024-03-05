@@ -8,3 +8,6 @@ print(df.groupBy(df.course).agg(count("*").alias("course_students")).show());
 
 # Task 24: Display the total number of male and female students enrolled in each course
 print(df.groupBy(df.course,df.gender).agg(count("*")).show());
+
+# Task 25: Display the total marks achieved by each gender in each course
+print(df.groupBy(df.gender,df.course).sum("marks").show());
