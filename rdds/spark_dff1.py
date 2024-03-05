@@ -25,3 +25,10 @@ print(df.select(df.name,df.marks).show())
 # Task 19: Write a code to display all the unique rows for age, number and course column
 print(df.dropDuplicates(["age","gender","course"]).count()) # First Solution
 print(df.select("name","gender","course").distinct().count()) # Second Solution
+
+# ---------------------------------------------------------------------------------
+anotherdf = spark.read.csv(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\input_files\OfficeData.csv",header=True,inferSchema=True);
+# Task 20: Create a DF sorted on bonus in ascending order and show it
+f_df = anotherdf.orderBy(anotherdf.bonus.asc()) # First Solution
+# f_df = df.sort(df.bonus.asc()) # Second Solution
+print(f_df.show())
