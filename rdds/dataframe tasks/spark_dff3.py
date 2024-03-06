@@ -6,3 +6,6 @@ df = spark.read.csv(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\inpu
 
 #Task 27: Print the total numbers of employees in the company
 print(df.dropDuplicates(["employee_id"]).count()) # or df.count();
+
+#Task 28: Print the total numbers of departments in the company
+df.select("department").distinct().count() # or df.dropDuplicates(["department"]).count()
