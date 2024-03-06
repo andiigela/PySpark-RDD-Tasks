@@ -25,3 +25,9 @@ print(df.groupBy(["state","department"]).agg(count("*")).show());
 # Task 33: Print the minimum and maximum salaries in each department and sort salaries in ascending order
 print(df.groupBy(["department"]).agg(min("salary").alias("min_salary"),max("salary").alias("max_salary"))
       .sort(col("min_salary"),col("max_salary")).show());
+
+# Task 34: Print the names of employees working in NY state under Finance department whose bonuses are greater
+# than the average bonuses of employees in NY state.
+value = df.groupBy([df.state]).agg(avg("bonus")).filter(col("state") == "NY").first();
+#print(value[1])
+print(df.filter((df.state == "NY") & (df.department == "Finance") & (df.bonus > value[1])).show())
