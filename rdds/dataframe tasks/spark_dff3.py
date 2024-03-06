@@ -18,3 +18,6 @@ print(df.groupBy(["department"]).agg(count("*")).show());
 
 # Task 31: Print the total number of employees in each state
 print(df.groupBy(["state"]).agg(count("*")).show());
+
+# Task 32: Print the total number of employees in each state in each department
+print(df.groupBy(["state","department"]).agg(count("*")).show());
