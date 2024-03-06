@@ -21,3 +21,7 @@ print(df.groupBy(["state"]).agg(count("*")).show());
 
 # Task 32: Print the total number of employees in each state in each department
 print(df.groupBy(["state","department"]).agg(count("*")).show());
+
+# Task 33: Print the minimum and maximum salaries in each department and sort salaries in ascending order
+print(df.groupBy(["department"]).agg(min("salary").alias("min_salary"),max("salary").alias("max_salary"))
+      .sort(col("min_salary"),col("max_salary")).show());
