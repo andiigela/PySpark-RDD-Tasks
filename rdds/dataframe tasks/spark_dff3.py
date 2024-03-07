@@ -31,3 +31,11 @@ print(df.groupBy(["department"]).agg(min("salary").alias("min_salary"),max("sala
 value = df.groupBy([df.state]).agg(avg("bonus")).filter(col("state") == "NY").first();
 #print(value[1])
 print(df.filter((df.state == "NY") & (df.department == "Finance") & (df.bonus > value[1])).show())
+
+# Task 35: Raise the salaries $500 of all employees whose age is greater than 45
+def raise_salary(age,salary):
+    if age > 45:
+        return salary + 500;
+    return salary;
+raise_salary_udf = udf(lambda x,y: raise_salary(x,y),IntegerType())
+df.withColumn("salary", raise_salary_udf(col("age"),col("salary"))).show()
