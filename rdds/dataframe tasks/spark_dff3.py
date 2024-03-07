@@ -1,5 +1,6 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import count,sum,avg,min, max,col
+from pyspark.sql.functions import count,sum,avg,min, max,col,udf
+from pyspark.sql.types import IntegerType
 
 spark = SparkSession.builder.appName("Fifth Quiz").getOrCreate();
 df = spark.read.csv(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\input_files\OfficeDataProject.csv",header=True,inferSchema=True);
@@ -39,3 +40,9 @@ def raise_salary(age,salary):
     return salary;
 raise_salary_udf = udf(lambda x,y: raise_salary(x,y),IntegerType())
 df.withColumn("salary", raise_salary_udf(col("age"),col("salary"))).show()
+
+# Task 36: Create DF of all those employees whose age is greater than 45 and save them in a file
+df2 = df.filter(df.age > 45)
+df2.write.mode("overwrite").options(header=True).csv(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\output_files\age_45.csv")
+check_file = spark.read.csv(r"C:\Users\andig\PycharmProjects\PySpark-RDD-Tasks\rdds\output_files\age_45.csv",header=True,inferSchema=True);
+check_file.show()
